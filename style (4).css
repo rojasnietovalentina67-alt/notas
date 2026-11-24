@@ -1,0 +1,113 @@
+:root {
+  --fondo: #f2f5f7;
+  --superficie: #ffffff;
+  --texto: #1d2b36;
+  --texto-suave: #55687a;
+  --borde: #cfd9e1;
+  --primario: #1f5f8b;
+  --primario-oscuro: #174a6d;
+  --aprobo: #1b7a45;
+  --aprobo-fondo: #e0f3e8;
+  --reprobo: #b3261e;
+  --reprobo-fondo: #fbe4e2;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", system-ui, -apple-system, Roboto, sans-serif;
+  background: var(--fondo);
+  color: var(--texto);
+  line-height: 1.5;
+}
+
+.contenedor {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 2rem 1rem 3rem;
+}
+
+header h1 { margin: 0 0 .25rem; font-size: 2rem; }
+header p { margin: 0 0 1.5rem; color: var(--texto-suave); }
+
+.panel {
+  background: var(--superficie);
+  border: 1px solid var(--borde);
+  border-radius: 10px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.panel h2 { margin: 0 0 .75rem; font-size: 1.25rem; }
+
+.progreso {
+  height: 6px;
+  background: var(--borde);
+  border-radius: 3px;
+  margin-bottom: 1.25rem;
+  overflow: hidden;
+}
+#barra {
+  height: 100%;
+  width: 0;
+  background: var(--primario);
+  transition: width .3s ease;
+}
+
+label { display: block; margin: .9rem 0 .3rem; font-weight: 600; }
+
+input {
+  width: 100%;
+  padding: .65rem .75rem;
+  font: inherit;
+  color: inherit;
+  border: 1px solid var(--borde);
+  border-radius: 6px;
+  background: #fff;
+}
+input:focus-visible,
+button:focus-visible {
+  outline: 3px solid #7fb5db;
+  outline-offset: 1px;
+}
+
+.error {
+  min-height: 1.4rem;
+  margin: .75rem 0 0;
+  color: var(--reprobo);
+  font-weight: 600;
+}
+
+button {
+  margin-top: .5rem;
+  padding: .7rem 1.25rem;
+  font: inherit;
+  font-weight: 600;
+  color: #fff;
+  background: var(--primario);
+  border: 0;
+  border-radius: 6px;
+  cursor: pointer;
+}
+button:hover { background: var(--primario-oscuro); }
+button.secundario { margin-top: 1.25rem; background: var(--texto-suave); }
+
+.tabla-scroll { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; min-width: 640px; }
+th, td { padding: .6rem .75rem; text-align: left; border-bottom: 1px solid var(--borde); }
+th { background: var(--fondo); font-size: .9rem; }
+
+.estado {
+  display: inline-block;
+  padding: .15rem .6rem;
+  border-radius: 999px;
+  font-size: .85rem;
+  font-weight: 700;
+}
+.estado.aprobo { color: var(--aprobo); background: var(--aprobo-fondo); }
+.estado.reprobo { color: var(--reprobo); background: var(--reprobo-fondo); }
+
+@media (prefers-reduced-motion: reduce) {
+  #barra { transition: none; }
+}

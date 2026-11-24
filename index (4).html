@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Registro de notas</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="contenedor">
+    <header>
+      <h1>Registro de notas</h1>
+      <p>Registra 5 estudiantes. Se aprueba con una nota de 3.0 o más.</p>
+    </header>
+
+    <section class="panel">
+      <h2 id="titulo-form">Estudiante 1 de 5</h2>
+      <div class="progreso" aria-hidden="true"><div id="barra"></div></div>
+
+      <form id="formulario" novalidate>
+        <label for="nombre">Nombre del estudiante</label>
+        <input type="text" id="nombre" autocomplete="off" required>
+
+        <label for="correo">Correo electrónico</label>
+        <input type="email" id="correo" autocomplete="off" required>
+
+        <label for="cedula">Número de cédula</label>
+        <input type="text" id="cedula" inputmode="numeric" autocomplete="off" required>
+
+        <label for="materia">Materia</label>
+        <input type="text" id="materia" autocomplete="off" required>
+
+        <label for="nota">Nota (0 a 5)</label>
+        <input type="number" id="nota" step="0.1" min="0" max="5" required>
+
+        <p id="error" class="error" role="alert"></p>
+        <button type="submit" id="btn-guardar">Guardar estudiante</button>
+      </form>
+    </section>
+
+    <section class="panel" id="resultados" hidden>
+      <h2>Resultados finales</h2>
+      <div class="tabla-scroll">
+        <table>
+          <thead>
+            <tr>
+              <th>Nombre</th><th>Correo</th><th>Cédula</th>
+              <th>Materia</th><th>Nota</th><th>Estado</th>
+            </tr>
+          </thead>
+          <tbody id="cuerpo-tabla"></tbody>
+        </table>
+      </div>
+      <button type="button" id="btn-reiniciar" class="secundario">Registrar nuevos estudiantes</button>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
